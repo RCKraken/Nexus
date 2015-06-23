@@ -23,24 +23,27 @@ public class Nexus_Graphics extends Canvas{
 	
 		//background
 		nexusG.setColor(Color.black);
-		nexusG.fillRect(0, 0, 1200, 700);
-			
+		nexusG.fillRect(0, 0, 1200, 730);
+		
+		//sky
+		nexusG.drawImage(Nexus_Import.sky, 0, 0, 6674, 450, null);
+		
 		//MapGen
 		for(int i = 0; i < Nexus_Main.MAPX; i++){
 			
 			for(int j = 0; j < Nexus_Main.MAPY; j++){
 				
 				if(Nexus_Main.blocks[i][j] == Nexus_Main.GRASS){
-					nexusG.drawImage(Nexus_Import.grass, i*10, (Nexus_Main.MAPY - j) * 10, null);
+					nexusG.drawImage(Nexus_Import.grass, i*50+Nexus_Main.MapPosX, (Nexus_Main.MAPY - j) * 50-2760, 50, 50, null);
 				}
 				
 				if(Nexus_Main.blocks[i][j] == Nexus_Main.DIRT){
-					nexusG.drawImage(Nexus_Import.dirt, i*10, (Nexus_Main.MAPY - j) * 10, null);
+					nexusG.drawImage(Nexus_Import.dirt, i*50+Nexus_Main.MapPosX, (Nexus_Main.MAPY - j) * 50-2760, 50, 50, null);
 				}
 				
 				
 				if(Nexus_Main.blocks[i][j] == Nexus_Main.STONE){
-					nexusG.drawImage(Nexus_Import.stone, i*10, (Nexus_Main.MAPY - j) * 10, null);
+					nexusG.drawImage(Nexus_Import.stone, i*50+Nexus_Main.MapPosX, (Nexus_Main.MAPY - j) * 50-2760, 50, 50, null);
 				}
 			}
 			

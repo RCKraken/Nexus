@@ -2,6 +2,9 @@ package nexus_main;
 
 
 import java.awt.Frame;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
@@ -10,6 +13,13 @@ import nexus_import.Nexus_Import;
 
 
 public class Nexus_Main {
+	
+	public static int MapPosX = 0;
+	
+	public static boolean aPressed = false;
+	public static boolean wPressed = false;
+	public static boolean sPressed = false;
+	public static boolean dPressed = false;
 	
 	public static final byte GRASS = 1;
 	public static final byte STONE = 2;
@@ -36,10 +46,10 @@ public class Nexus_Main {
 			      }
 			   });
 			   
-		frame01.setSize(1200, 700);
+		frame01.setSize(1200, 730);
 			   
 		frame01.setVisible(true);
-		nexusCanvas.setSize(1200, 700);
+		nexusCanvas.setSize(1200, 730);
 		frame01.add(nexusCanvas);
 		
 		mapGen();
@@ -66,8 +76,59 @@ public class Nexus_Main {
 		while(true){
 			
 			Thread.sleep(33);
+			if(aPressed = true){
+				MapPosX++;
+			}
+			if(dPressed = true){
+				MapPosX--;
+			}
 			nexusCanvas.render();
 		}
+	}
+	
+	public static void keyboardInitialize()
+	{
+		KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
+
+            @Override
+            public boolean dispatchKeyEvent(KeyEvent ke) {
+                synchronized (Nexus_Main.class) {
+                    switch (ke.getID()) {
+                    case KeyEvent.KEY_PRESSED:
+                        if (ke.getKeyCode() == KeyEvent.VK_A) {
+                            aPressed = true;
+                        }
+                        else if (ke.getKeyCode() == KeyEvent.VK_W) {
+                            wPressed = true;
+                        }
+                        else if (ke.getKeyCode() == KeyEvent.VK_S) {
+                            sPressed = true;
+                        }
+                        else if (ke.getKeyCode() == KeyEvent.VK_D) {
+                            dPressed = true;
+                        }
+                        break;
+
+                    case KeyEvent.KEY_RELEASED:
+                    	if (ke.getKeyCode() == KeyEvent.VK_A) {
+                            aPressed = false;
+                        }
+                        else if (ke.getKeyCode() == KeyEvent.VK_W) {
+                            wPressed = false;
+                        }
+                        else if (ke.getKeyCode() == KeyEvent.VK_S) {
+                            sPressed = false;
+                        }
+                        else if (ke.getKeyCode() == KeyEvent.VK_D) {
+                            dPressed = false;
+                        }
+                    	
+                        break;
+                    }
+                    return false;
+                }
+            }
+        });
 	}
 }
 
