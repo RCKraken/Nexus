@@ -11,9 +11,9 @@ import nexus_import.Nexus_Import;
 
 public class Nexus_Main {
 	
-	public static final byte GRASS = 0;
-	public static final byte STONE = 1;
-	public static final byte DIRT = 2;
+	public static final byte GRASS = 1;
+	public static final byte STONE = 2;
+	public static final byte DIRT = 3;
 	public static final int MAPX = 120;
 	public static final int MAPY = 70;
 	

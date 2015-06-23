@@ -31,15 +31,16 @@ public class Nexus_Graphics extends Canvas{
 			for(int j = 0; j < Nexus_Main.MAPY; j++){
 				
 				if(Nexus_Main.blocks[i][j] == Nexus_Main.GRASS){
-					nexusG.drawImage( Nexus_Import.grass, i*10, (Nexus_Main.MAPY - j) * 10, null);
+					nexusG.drawImage(Nexus_Import.grass, i*10, (Nexus_Main.MAPY - j) * 10, null);
 				}
 				
-				else if(Nexus_Main.blocks[i][j] == Nexus_Main.DIRT){
-					nexusG.drawImage( Nexus_Import.dirt, i*10, (Nexus_Main.MAPY - j) * 10, null);
+				if(Nexus_Main.blocks[i][j] == Nexus_Main.DIRT){
+					nexusG.drawImage(Nexus_Import.dirt, i*10, (Nexus_Main.MAPY - j) * 10, null);
 				}
 				
-				else if(Nexus_Main.blocks[i][j] == Nexus_Main.STONE){
-					nexusG.drawImage( Nexus_Import.stone, i*10, (Nexus_Main.MAPY - j) * 10, null);
+				
+				if(Nexus_Main.blocks[i][j] == Nexus_Main.STONE){
+					nexusG.drawImage(Nexus_Import.stone, i*10, (Nexus_Main.MAPY - j) * 10, null);
 				}
 			}
 			
