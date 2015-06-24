@@ -20,11 +20,13 @@ public class Nexus_Main {
 	public static boolean wPressed = false;
 	public static boolean sPressed = false;
 	public static boolean dPressed = false;
+	public static boolean shiftPressed = false;
 	
 	public static final byte GRASS = 1;
 	public static final byte STONE = 2;
 	public static final byte DIRT = 3;
-	public static final int MAPX = 120;
+	public static final byte TREE = 4;
+	public static final int MAPX = 500;
 	public static final int MAPY = 70;
 	
 	public static char[][] blocks = new char [MAPX][MAPY];
@@ -63,6 +65,7 @@ public class Nexus_Main {
 		
 		for(int i = 0; i < MAPX; i++){
 				
+				blocks[i][14] = TREE;
 				blocks[i][6] = GRASS;
 				blocks[i][5] = DIRT;
 				blocks[i][4] = DIRT;
@@ -79,13 +82,21 @@ public class Nexus_Main {
 		while(true){
 			
 			Thread.sleep(33);
-			if(aPressed == true){
-				MapPosX += 10;
+			if(shiftPressed){
+				if(aPressed == true){
+					MapPosX += 10;
+				}
+				if(dPressed == true){
+					MapPosX -= 10;
+				}
 			}
-			if(dPressed == true){
-				MapPosX -= 10;
-			}
-			System.out.println(MapPosX);
+			
+				if(aPressed == true){
+					MapPosX += 7;
+				}
+				if(dPressed == true){
+					MapPosX -= 7;
+				}
 			nexusCanvas.render();
 		}
 	}
@@ -111,6 +122,9 @@ public class Nexus_Main {
                         else if (ke.getKeyCode() == KeyEvent.VK_D) {
                             dPressed = true;
                         }
+                        else if (ke.getKeyCode() == KeyEvent.VK_SHIFT) {
+                            shiftPressed = true;
+                        }
                         break;
 
                     case KeyEvent.KEY_RELEASED:
@@ -126,7 +140,9 @@ public class Nexus_Main {
                         else if (ke.getKeyCode() == KeyEvent.VK_D) {
                             dPressed = false;
                         }
-                    	
+                        else if (ke.getKeyCode() == KeyEvent.VK_SHIFT) {
+                            shiftPressed = false;
+                        }
                         break;
                     }
                     return false;

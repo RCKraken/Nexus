@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class Nexus_Import {
 	
@@ -17,7 +18,11 @@ public class Nexus_Import {
 	
 	public static BufferedImage sky;
 	
-	public static BufferedImage sanic;
+	public static BufferedImage tree;
+	
+	public static BufferedImage speed;
+	
+	public static ImageIcon mudMan;
 	
 	public static void loadimage() throws IOException{
 		
@@ -31,7 +36,12 @@ public class Nexus_Import {
 		
 		sky = ImageIO.read(Nexus_Import.class.getResource("nexus_sky.png"));
 		
-		sanic = ImageIO.read(Nexus_Import.class.getResource("Sanic.png"));
+		tree = ImageIO.read(Nexus_Import.class.getResource("nexus_tree.png"));
+		
+		speed = ImageIO.read(Nexus_Import.class.getResource("nexus_speed_bar.png"));
+		
+		mudMan = new ImageIcon(Nexus_Import.class.getResource("Mud-Man.gif"));
+		
 		
 	}
 	
