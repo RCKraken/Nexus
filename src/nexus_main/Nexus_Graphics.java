@@ -9,7 +9,7 @@ import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.ImageObserver;
 
-public class Nexus_Graphics extends Canvas implements ImageObserver{
+public class Nexus_Graphics extends Canvas{
 	
 	public BufferStrategy nexusBufferStrategy;
 	
@@ -30,7 +30,7 @@ public class Nexus_Graphics extends Canvas implements ImageObserver{
 		nexusG.drawImage(Nexus_Import.sky, 0, 0, 6674, 450, null);
 		
 		//mudMan
-		nexusG.drawImage(Nexus_Import.mudMan.getImage(), 300, 340, this);
+		nexusG.drawImage(Nexus_Import.mudMan.getImage(), 300, 340, Nexus_Import.mudMan.getImageObserver());
 		
 		//MapGen
 		for(int i = 0; i < Nexus_Main.MAPX; i++){

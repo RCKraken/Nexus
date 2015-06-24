@@ -57,7 +57,6 @@ public class Nexus_Main {
 		mapGen();
 		
 		keyboardInitialize();
-		
 		gameloop();
 	}
 	
@@ -78,10 +77,11 @@ public class Nexus_Main {
 	}
 	
 	public static void gameloop() throws InterruptedException{
+		long startTime;
+		long endTime;
 		
 		while(true){
-			
-			Thread.sleep(33);
+			startTime = System.currentTimeMillis();
 			if(shiftPressed){
 				if(aPressed == true){
 					MapPosX += 10;
@@ -98,6 +98,11 @@ public class Nexus_Main {
 					MapPosX -= 7;
 				}
 			nexusCanvas.render();
+			endTime = System.currentTimeMillis();
+			if(endTime - startTime < 17)
+			{
+				Thread.sleep(17 - (endTime - startTime));
+			}
 		}
 	}
 	
