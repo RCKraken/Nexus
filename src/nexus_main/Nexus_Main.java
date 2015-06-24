@@ -53,6 +53,9 @@ public class Nexus_Main {
 		frame01.add(nexusCanvas);
 		
 		mapGen();
+		
+		keyboardInitialize();
+		
 		gameloop();
 	}
 	
@@ -76,12 +79,13 @@ public class Nexus_Main {
 		while(true){
 			
 			Thread.sleep(33);
-			if(aPressed = true){
-				MapPosX++;
+			if(aPressed == true){
+				MapPosX += 10;
 			}
-			if(dPressed = true){
-				MapPosX--;
+			if(dPressed == true){
+				MapPosX -= 10;
 			}
+			System.out.println(MapPosX);
 			nexusCanvas.render();
 		}
 	}
